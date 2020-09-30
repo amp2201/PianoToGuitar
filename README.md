@@ -1,2 +1,2 @@
 # PianoToGuitar
-A website to convert piano keys to guitar frets
+A website with an interactive keyboard and guitar that shows the user which piano key a guitar fret corresponds to and vice versa
