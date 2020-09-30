@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Piano to Guitar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../../js/ios-orientationchange-fix.min.js"></script>
+  </head>
+
+
+  <body onload="spaceAllCircles()">
+    <div class="title-wrapper">
+      <h1>This converts piano keys to guitar frets by Drew and Nima.</h1>
+    </div>
+    <div class="content-container">
+      <div class="img-wrapper">
+        <img src="Images\piano.jpg" alt="HTML5 Icon" usemap="#pianomap" class = "map">
+	<button class="white" id="p0, 4" state="0" octave="0" onclick="toggleButton(0, 4)">E</button>
+        <button class="white" id="p0, 5" state="0" octave="0" onclick="toggleButton(0, 5)">F</button>
+        <button class="black" id="p0, 6" state="0" octave="0" s="1" onclick="toggleButton(0, 6)">F<sup>#</sup></button>
+        <button class="white" id="p0, 7" state="0" octave="0" onclick="toggleButton(0, 7)">G</button>
+        <button class="black" id="p0, 8" state="0" octave="0" s="1" onclick="toggleButton(0, 8)">A<sup>b</sup></button>
+	
+	<button class="white" id="p0, 9" state="0" octave="0" onclick="toggleButton(0, 9)">A</button>
+        <button class="black" id="p0, 10" state="0" octave="0" s="1" onclick="toggleButton(0, 10)">B<sup>b</sup></button>
+        <button class="white" id="p0, 11" state="0" octave="0" onclick="toggleButton(0, 11)">B</button>
+        <button class="white" id="p1, 0" state="0" octave="1" onclick="toggleButton(1, 0)">C</button>
+        <button class="black" id="p1, 1" state="0" octave="1" s="1" onclick="toggleButton(1, 1)">C<sup>#</sup></button>
+
+        <button class="white" id="p1, 2" state="0" octave="1" onclick="toggleButton(1, 2)">D</button>
+        <button class="black" id="p1, 3" state="0" octave="1" s="1" onclick="toggleButton(1, 3)">E<sup>b</sup></button>
+        <button class="white" id="p1, 4" state="0" octave="1" onclick="toggleButton(1, 4)">E</button>
+        <button class="white" id="p1, 5" state="0" octave="1" onclick="toggleButton(1, 5)">F</button>
+        <button class="black" id="p1, 6" state="0" octave="1" s="1" onclick="toggleButton(1, 6)">F<sup>#</sup></button>
+	
+	<button class="white" id="p1, 7" state="0" octave="1" onclick="toggleButton(1, 7)">G</button>
+        <button class="black" id="p1, 8" state="0" octave="1" s="1" onclick="toggleButton(1, 8)">A<sup>b</sup></button>
+        <button class="white" id="p1, 9" state="0" octave="1" onclick="toggleButton(1, 9)">A</button>
+        <button class="black" id="p1, 10" state="0" octave="1" s="1" onclick="toggleButton(1, 10)">B<sup>b</sup></button>
+        <!-- <button class="string3" id="3, 4" state="0" onclick="toggleButton(1, 11)">B</button> -->
+
+        <button class="white" id="p1, 11" state="0" octave="1" onclick="toggleButton(1, 11)">B</button>
+        <button class="white" id="p2, 0" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="black" id="p2, 1" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="white" id="p2, 2" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="black" id="p2, 3" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+
+        <button class="white" id="p2, 4" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="white" id="p2, 5" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="black" id="p2, 6" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="white" id="p2, 7" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="black" id="p2, 8" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+        <button class="white" id="p2, 9" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>
+        <button class="black" id="p2, 10" state="0" octave="2" s="1" onclick="toggleButton(2, 10)">B<sup>b</sup></button>
+        <button class="white" id="p2, 11" state="0" octave="2" onclick="toggleButton(2, 11)">B</button>
+        <button class="white" id="p3, 0" state="0" octave="3" onclick="toggleButton(3, 0)">C</button>
+        <button class="black" id="p3, 1" state="0" octave="3" s="1" onclick="toggleButton(3, 1)">C<sup>#</sup></button>
+
+        <button class="white" id="p3, 2" state="0" octave="3" onclick="toggleButton(3, 2)">D</button>
+        <button class="black" id="p3, 3" state="0" octave="3" s="1" onclick="toggleButton(3, 3)">E<sup>b</sup></button>
+        <button class="white" id="p3, 4" state="0" octave="3" onclick="toggleButton(3, 4)">E</button>
+        <button class="white" id="p3, 5" state="0" octave="3" onclick="toggleButton(3, 5)">F</button>
+        <button class="black" id="p3, 6" state="0" octave="3" s="1" onclick="toggleButton(3, 6)">F<sup>#</sup></button>
+	
+	<button class="white" id="p3, 7" state="0" octave="3" onclick="toggleButton(3, 7)">G</button>
+        <button class="black" id="p3, 8" state="0" octave="3" s="1" onclick="toggleButton(3, 8)">A<sup>b</sup></button>
+        <button class="white" id="p3, 9" state="0" octave="3" onclick="toggleButton(3, 9)">A</button>
+        <button class="black" id="p3, 10" state="0" octave="3" s="1" onclick="toggleButton(3, 10)">B<sup>b</sup></button>
+        <button class="white" id="p3, 11" state="0" octave="3" onclick="toggleButton(3, 11)">B</button>
+
+        <button class="white" id="p4, 0" state="0" octave="4" onclick="toggleButton(4, 0)">C</button>
+        <button class="black" id="p4, 1" state="0" octave="4" s="1" onclick="toggleButton(4, 1)">C<sup>#</sup></button>
+        <button class="white" id="p4, 2" state="0" octave="4" onclick="toggleButton(4, 2)">D</button>
+        <button class="black" id="p4, 3" state="0" octave="4" s="1" onclick="toggleButton(4, 3)">E<sup>b</sup></button>
+        <button class="white" id="p4, 4" state="0" octave="4" onclick="toggleButton(4, 4)">E</button>
+
+      </div>
+      <!-- This is the map for the piano. The map has areas that can be clicked that look invisible. 
+      area class="6" means that this is the clickable area for the 5th key
+      White keys are 45 pixels long. coords="x1,y1,x2,y2"-->
+      <map name="pianomap">
+	
+	<area class="k" shape="rect" coords="94,161,139,294" onclick="toggleButton(0, 4)">
+        <area class="k" shape="rect" coords="139,161,184,294" onclick="toggleButton(0, 5);"/>
+        <area class="k" shape="rect" coords="170,0,197,162" onclick="toggleButton(0, 6)"/>
+        <area class="k" shape="rect" coords="184,161,229,294" onclick="toggleButton(0, 7)" />
+        <area class="k" shape="rect" coords="217,0,244,162" onclick="toggleButton(0, 8)">
+        <area class="k" shape="rect" coords="229,161,276,294" onclick="toggleButton(0, 9)"/>
+        <area class="k" shape="rect" coords="263,0,289,162" onclick="toggleButton(0, 10)">
+        <area class="k" shape="rect" coords="276,161,321,294" onclick="toggleButton(0, 11)"/>
+
+        <area class="k" shape="rect" coords="321,163,366,294" onclick="toggleButton(1, 0)"/>
+        <area class="k" shape="rect" coords="355,0,380,163" onclick="toggleButton(1, 1)"/>
+        <area class="k" shape="rect" coords="366,163,413,294" onclick="toggleButton(1, 2)"/>
+        <area class="k" shape="rect" coords="400,0,427,163" onclick="toggleButton(1, 3)"/>
+        <area class="k" shape="rect" coords="413,163,459,294" onclick="toggleButton(1, 4)"/>
+        <area class="k" shape="rect" coords="459,163,504,294" onclick="toggleButton(1, 5)"/>
+        <area class="k" shape="rect" coords="492,0,518,163" onclick="toggleButton(1, 6)"/>
+        <area class="k" shape="rect" coords="504,163,550,294" onclick="toggleButton(1, 7)"/>
+        <area class="k" shape="rect" coords="538,0,564,163" onclick="toggleButton(1, 8)"/>
+        <area class="k" shape="rect" coords="551,163,596,294" onclick="toggleButton(1, 9)"/>
+        <area class="k" shape="rect" coords="583,0,608,163" onclick="toggleButton(1, 10)"/>
+        <area class="k" shape="rect" coords="596,163,641,294" onclick="toggleButton(1, 11)"/>
+
+        <area class="k" shape="rect" coords="641,163,687,294" onclick="toggleButton(2, 0)"/>
+        <area class="k" shape="rect" coords="674,0,700,163" onclick="toggleButton(2, 1)"/>
+        <area class="k" shape="rect" coords="687,163,733,294" onclick="toggleButton(2, 2)"/>
+        <area class="k" shape="rect" coords="721,0,747,163" onclick="toggleButton(2, 3)"/>
+        <area class="k" shape="rect" coords="733,163,779,294" onclick="toggleButton(2, 4)"/>
+        <area class="k" shape="rect" coords="779,163,825,294" onclick="toggleButton(2, 5)"/>
+        <area class="k" shape="rect" coords="811,0,838,163" onclick="toggleButton(2, 6)"/>
+        <area class="k" shape="rect" coords="825,163,870,294" onclick="toggleButton(2, 7)"/>
+        <area class="k" shape="rect" coords="858,0,884,163" onclick="toggleButton(2, 8)"/>
+        <area class="k" shape="rect" coords="870,163,917,294" onclick="toggleButton(2, 9)"/>
+        <area class="k" shape="rect" coords="904,0,929,163" onclick="toggleButton(2, 10)"/>
+        <area class="k" shape="rect" coords="917,163,961,294" onclick="toggleButton(2, 11)"/>
+
+        <area class="k" shape="rect" coords="962,163,1007,294" onclick="toggleButton(3, 0)"/>
+        <area class="k" shape="rect" coords="995,0,1020,163" onclick="toggleButton(3, 1)"/>
+        <area class="k" shape="rect" coords="1008,163,1053,294" onclick="toggleButton(3, 2)"/>
+        <area class="k" shape="rect" coords="1040,0,1067,163" onclick="toggleButton(3, 3)"/>
+        <area class="k" shape="rect" coords="1053,163,1099,294" onclick="toggleButton(3, 4)"/>
+        <area class="k" shape="rect" coords="1099,163,1145,294" onclick="toggleButton(3, 5)"/>
+        <area class="k" shape="rect" coords="1132,0,1158,163" onclick="toggleButton(3, 6)"/>
+        <area class="k" shape="rect" coords="1145,163,1190,294" onclick="toggleButton(3, 7)"/>
+        <area class="k" shape="rect" coords="1178,0,1203,163" onclick="toggleButton(3, 8)"/>
+        <area class="k" shape="rect" coords="1190,163,1236,294" onclick="toggleButton(3, 9)"/>
+        <area class="k" shape="rect" coords="1223,0,1249,163" onclick="toggleButton(3, 10)"/>
+        <area class="k" shape="rect" coords="1236,163,1282,294" onclick="toggleButton(3, 11)"/>
+
+        <area class="k" shape="rect" coords="1282,163,1329,294" onclick="toggleButton(4, 0)"/>
+        <area class="k" shape="rect" coords="1315,0,1341,163" onclick="toggleButton(4, 1)"/>
+        <area class="k" shape="rect" coords="1327,163,1373,294" onclick="toggleButton(4, 2)"/>
+        <area class="k" shape="rect" coords="1360,0,1387,163" onclick="toggleButton(4, 3)"/>
+        <area class="k" shape="rect" coords="1373,163,1419,294" onclick="toggleButton(4, 4)"/>
+      </map>
+      
+      <div class="img-wrapper">
+        <img class="back" src="Images\guitar.jpg" usemap="#guitarmap" alt="">
+        <!-- the state attribute determines visibility of circle  -->
+	<button class="string0" id="0, 0" state="0" octave="0" onclick="toggleButton(0, 4)">E</button>
+        <button class="string0" id="0, 1" state="0" octave="0" onclick="toggleButton(0, 5)">F</button>
+        <button class="string0" id="0, 2" state="0" octave="0" s="1" onclick="toggleButton(0, 6)">F<sup>#</sup></button>
+        <button class="string0" id="0, 3" state="0" octave="0" onclick="toggleButton(0, 7)">G</button>
+        <button class="string0" id="0, 4" state="0" octave="0" s="1" onclick="toggleButton(0, 8)">A<sup>b</sup></button>
+
+	<button class="string1" id="1, 0" state="0" octave="0" onclick="toggleButton(0, 9)">A</button>
+        <button class="string1" id="1, 1" state="0" octave="0" s="1" onclick="toggleButton(0, 10)">B<sup>b</sup></button>
+        <button class="string1" id="1, 2" state="0" octave="0" onclick="toggleButton(0, 11)">B</button>
+        <button class="string1" id="1, 3" state="0" octave="1" onclick="toggleButton(1, 0)">C</button>
+        <button class="string1" id="1, 4" state="0" octave="1" s="1" onclick="toggleButton(1, 1)">C<sup>#</sup></button>
+
+        <button class="string2" id="2, 0" state="0" octave="1" onclick="toggleButton(1, 2)">D</button>
+        <button class="string2" id="2, 1" state="0" octave="1" s="1" onclick="toggleButton(1, 3)">E<sup>b</sup></button>
+        <button class="string2" id="2, 2" state="0" octave="1" onclick="toggleButton(1, 4)">E</button>
+        <button class="string2" id="2, 3" state="0" octave="1" onclick="toggleButton(1, 5)">F</button>
+        <button class="string2" id="2, 4" state="0" octave="1" s="1" onclick="toggleButton(1, 6)">F<sup>#</sup></button>
+
+	<button class="string3" id="3, 0" state="0" octave="1" onclick="toggleButton(1, 7)">G</button>
+        <button class="string3" id="3, 1" state="0" octave="1" s="1" onclick="toggleButton(1, 8)">A<sup>b</sup></button>
+        <button class="string3" id="3, 2" state="0" octave="1" onclick="toggleButton(1, 9)">A</button>
+        <button class="string3" id="3, 3" state="0" octave="1" s="1" onclick="toggleButton(1, 10)">B<sup>b</sup></button>
+
+	<button class="string4" id="4, 0" state="0" octave="1" onclick="toggleButton(1, 11)">B</button> 
+        <button class="string4" id="4, 1" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="string4" id="4, 2" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="string4" id="4, 3" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="string4" id="4, 4" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+
+	<button class="string5" id="5, 0" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="string5" id="5, 1" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="string5" id="5, 2" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="string5" id="5, 3" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="string5" id="5, 4" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+	<button class="string5" id="5, 5" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>
+        <button class="string5" id="5, 6" state="0" octave="2" s="1" onclick="toggleButton(2, 10)">B<sup>b</sup></button>
+        <button class="string5" id="5, 7" state="0" octave="2" onclick="toggleButton(2, 11)">B</button>
+        <button class="string5" id="5, 8" state="0" octave="3" onclick="toggleButton(3, 0)">C</button>
+        <button class="string5" id="5, 9" state="0" octave="3" s="1" onclick="toggleButton(3, 1)">C<sup>#</sup></button>
+
+	<button class="string5" id="5, 10" state="0" octave="3" onclick="toggleButton(3, 2)">D</button>
+        <button class="string5" id="5, 11" state="0" octave="3" s="1" onclick="toggleButton(3, 3)">E<sup>b</sup></button>
+        <button class="string5" id="5, 12" state="0" octave="3" onclick="toggleButton(3, 4)">E</button>
+        <button class="string5" id="5, 13" state="0" octave="3" onclick="toggleButton(3, 5)">F</button>
+        <button class="string5" id="5, 14" state="0" octave="3" s="1" onclick="toggleButton(3, 6)">F<sup>#</sup></button>
+
+	<button class="string5" id="5, 15" state="0" octave="3" onclick="toggleButton(3, 7)">G</button>
+        <button class="string5" id="5, 16" state="0" octave="3" s="1" onclick="toggleButton(3, 8)">A<sup>b</sup></button>
+        <button class="string5" id="5, 17" state="0" octave="3" onclick="toggleButton(3, 9)">A</button>
+        <button class="string5" id="5, 18" state="0" octave="3" s="1" onclick="toggleButton(3, 10)">B<sup>b</sup></button>
+        <button class="string5" id="5, 19" state="0" octave="3" onclick="toggleButton(3, 11)">B</button>
+
+	<button class="string5" id="5, 20" state="0" octave="4" onclick="toggleButton(4, 0)">C</button>
+        <button class="string5" id="5, 21" state="0" octave="4" s="1" onclick="toggleButton(4, 1)">C<sup>#</sup></button>
+        <button class="string5" id="5, 22" state="0" octave="4" onclick="toggleButton(4, 2)">D</button>
+        <button class="string5" id="5, 23" state="0" octave="4" s="1" onclick="toggleButton(4, 3)">E<sup>b</sup></button>
+        <button class="string5" id="5, 24" state="0" octave="4" onclick="toggleButton(4, 4)">E</button>
+
+
+	
+	<!-- These buttons are the extra notes that appear on a lower guitar fret. Notice "id" needs an "s" -->
+	<button class="string0" id="s0, 5" state="0" octave="0" onclick="toggleButton(0, 9)">A</button>
+        <button class="string0" id="s0, 6" state="0" octave="0" s="1" onclick="toggleButton(0, 10)">B<sup>b</sup></button>
+        <button class="string0" id="s0, 7" state="0" octave="0" onclick="toggleButton(0, 11)">B</button>
+        <button class="string0" id="s0, 8" state="0" octave="1" onclick="toggleButton(1, 0)">C</button>
+        <button class="string0" id="s0, 9" state="0" octave="1" s="1" onclick="toggleButton(1, 1)">C<sup>#</sup></button>	
+	<button class="string0" id="s0, 10" state="0" octave="1" onclick="toggleButton(1, 2)">D</button>
+        <button class="string0" id="s0, 11" state="0" octave="1" s="1" onclick="toggleButton(1, 3)">E<sup>b</sup></button>
+        <button class="string0" id="s0, 12" state="0" octave="1" onclick="toggleButton(1, 4)">E</button>
+        <button class="string0" id="s0, 13" state="0" octave="1" onclick="toggleButton(1, 5)">F</button>
+        <button class="string0" id="s0, 14" state="0" octave="1" s="1" onclick="toggleButton(1, 6)">F<sup>#</sup></button>
+
+        <button class="string0" id="s0, 15" state="0" octave="1" onclick="toggleButton(1, 7)">G</button>
+        <button class="string0" id="s0, 16" state="0" octave="1" s="1" onclick="toggleButton(1, 8)">A<sup>b</sup></button>
+        <button class="string0" id="s0, 17" state="0" octave="1" onclick="toggleButton(1, 9)">A</button>
+        <button class="string0" id="s0, 18" state="0" octave="1" s="1" onclick="toggleButton(1, 10)">B<sup>b</sup></button>
+
+        <button class="string0" id="s0, 19" state="0" octave="1" onclick="toggleButton(1, 11)">B</button>
+        <button class="string0" id="s0, 20" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="string0" id="s0, 21" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="string0" id="s0, 22" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="string0" id="s0, 23" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+	<button class="string0" id="s0, 24" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+
+	<!-- string1 extras -->
+	<button class="string1" id="s1, 5" state="0" octave="1" onclick="toggleButton(1, 2)">D</button>
+        <button class="string1" id="s1, 6" state="0" octave="1" s="1" onclick="toggleButton(1, 3)">E<sup>b</sup></button>
+        <button class="string1" id="s1, 7" state="0" octave="1" onclick="toggleButton(1, 4)">E</button>
+        <button class="string1" id="s1, 8" state="0" octave="1" onclick="toggleButton(1, 5)">F</button>
+        <button class="string1" id="s1, 9" state="0" octave="1" s="1" onclick="toggleButton(1, 6)">F<sup>#</sup></button>
+
+        <button class="string1" id="s1, 10" state="0" octave="1" onclick="toggleButton(1, 7)">G</button>
+        <button class="string1" id="s1, 11" state="0" octave="1" s="1" onclick="toggleButton(1, 8)">A<sup>b</sup></button>
+        <button class="string1" id="s1, 12" state="0" octave="1" onclick="toggleButton(1, 9)">A</button>
+        <button class="string1" id="s1, 13" state="0" octave="1" s="1" onclick="toggleButton(1, 10)">B<sup>b</sup></button>
+
+        <button class="string1" id="s1, 14" state="0" octave="1" onclick="toggleButton(1, 11)">B</button>
+	<button class="string1" id="s1, 15" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="string1" id="s1, 16" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="string1" id="s1, 17" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="string1" id="s1, 18" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+
+        <button class="string1" id="s1, 19" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="string1" id="s1, 20" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="string1" id="s1, 21" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="string1" id="s1, 22" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="string1" id="s1, 23" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+        <button class="string1" id="s1, 24" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>  
+        
+	<!-- string 2 extras -->
+	<button class="string2" id="s2, 5" state="0" octave="1" onclick="toggleButton(1, 7)">G</button>
+        <button class="string2" id="s2, 6" state="0" octave="1" s="1" onclick="toggleButton(1, 8)">A<sup>b</sup></button>
+        <button class="string2" id="s2, 7" state="0" octave="1" onclick="toggleButton(1, 9)">A</button>
+        <button class="string2" id="s2, 8" state="0" octave="1" s="1" onclick="toggleButton(1, 10)">B<sup>b</sup></button>
+	
+        <button class="string2" id="s2, 9" state="0" octave="1" onclick="toggleButton(1, 11)">B</button>
+        <button class="string2" id="s2, 10" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="string2" id="s2, 11" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="string2" id="s2, 12" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="string2" id="s2, 13" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+
+        <button class="string2" id="s2, 14" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="string2" id="s2, 15" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="string2" id="s2, 16" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="string2" id="s2, 17" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="string2" id="s2, 18" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+        <button class="string2" id="s2, 19" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>
+        <button class="string2" id="s2, 20" state="0" octave="2" s="1" onclick="toggleButton(2, 10)">B<sup>b</sup></button>
+        <button class="string2" id="s2, 21" state="0" octave="2" onclick="toggleButton(2, 11)">B</button>
+        <button class="string2" id="s2, 22" state="0" octave="3" onclick="toggleButton(3, 0)">C</button>
+        <button class="string2" id="s2, 23" state="0" octave="3" s="1" onclick="toggleButton(3, 1)">C<sup>#</sup></button>
+
+        <button class="string2" id="s2, 24" state="0" octave="3" onclick="toggleButton(3, 2)">D</button>
+
+	<!-- string3 extras -->
+	<button class="string3" id="s3, 4" state="0" octave="1" onclick="toggleButton(1, 11)">B</button>
+        <button class="string3" id="s3, 5" state="0" octave="2" onclick="toggleButton(2, 0)">C</button>
+        <button class="string3" id="s3, 6" state="0" octave="2" s="1" onclick="toggleButton(2, 1)">C<sup>#</sup></button>
+        <button class="string3" id="s3, 7" state="0" octave="2" onclick="toggleButton(2, 2)">D</button>
+        <button class="string3" id="s3, 8" state="0" octave="2" s="1" onclick="toggleButton(2, 3)">E<sup>b</sup></button>
+
+        <button class="string3" id="s3, 9" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="string3" id="s3, 10" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="string3" id="s3, 11" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="string3" id="s3, 12" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="string3" id="s3, 13" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+        <button class="string3" id="s3, 14" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>
+        <button class="string3" id="s3, 15" state="0" octave="2" s="1" onclick="toggleButton(2, 10)">B<sup>b</sup></button>
+        <button class="string3" id="s3, 16" state="0" octave="2" onclick="toggleButton(2, 11)">B</button>
+        <button class="string3" id="s3, 17" state="0" octave="3" onclick="toggleButton(3, 0)">C</button>
+        <button class="string3" id="s3, 18" state="0" octave="3" s="1" onclick="toggleButton(3, 1)">C<sup>#</sup></button>
+
+        <button class="string3" id="s3, 19" state="0" octave="3" onclick="toggleButton(3, 2)">D</button>
+        <button class="string3" id="s3, 20" state="0" octave="3" s="1" onclick="toggleButton(3, 3)">E<sup>b</sup></button>
+        <button class="string3" id="s3, 21" state="0" octave="3" onclick="toggleButton(3, 4)">E</button>
+        <button class="string3" id="s3, 22" state="0" octave="3" onclick="toggleButton(3, 5)">F</button>
+        <button class="string3" id="s3, 23" state="0" octave="3" s="1" onclick="toggleButton(3, 6)">F<sup>#</sup></button>
+
+        <button class="string3" id="s3, 24" state="0" octave="3" onclick="toggleButton(3, 7)">G</button>
+
+	<!-- string 4 extras -->
+	<button class="string4" id="s4, 5" state="0" octave="2" onclick="toggleButton(2, 4)">E</button>
+        <button class="string4" id="s4, 6" state="0" octave="2" onclick="toggleButton(2, 5)">F</button>
+        <button class="string4" id="s4, 7" state="0" octave="2" s="1" onclick="toggleButton(2, 6)">F<sup>#</sup></button>
+        <button class="string4" id="s4, 8" state="0" octave="2" onclick="toggleButton(2, 7)">G</button>
+        <button class="string4" id="s4, 9" state="0" octave="2" s="1" onclick="toggleButton(2, 8)">A<sup>b</sup></button>
+
+        <button class="string4" id="s4, 10" state="0" octave="2" onclick="toggleButton(2, 9)">A</button>
+        <button class="string4" id="s4, 11" state="0" octave="2" s="1" onclick="toggleButton(2, 10)">B<sup>b</sup></button>
+        <button class="string4" id="s4, 12" state="0" octave="2" onclick="toggleButton(2, 11)">B</button>
+        <button class="string4" id="s4, 13" state="0" octave="3" onclick="toggleButton(3, 0)">C</button>
+        <button class="string4" id="s4, 14" state="0" octave="3" s="1" onclick="toggleButton(3, 1)">C<sup>#</sup></button>
+
+        <button class="string4" id="s4, 15" state="0" octave="3" onclick="toggleButton(3, 2)">D</button>
+        <button class="string4" id="s4, 16" state="0" octave="3" s="1" onclick="toggleButton(3, 3)">E<sup>b</sup></button>
+        <button class="string4" id="s4, 17" state="0" octave="3" onclick="toggleButton(3, 4)">E</button>
+        <button class="string4" id="s4, 18" state="0" octave="3" onclick="toggleButton(3, 5)">F</button>
+        <button class="string4" id="s4, 19" state="0" octave="3" s="1" onclick="toggleButton(3, 6)">F<sup>#</sup></button>
+
+        <button class="string4" id="s4, 20" state="0" octave="3" onclick="toggleButton(3, 7)">G</button>
+        <button class="string4" id="s4, 21" state="0" octave="3" s="1" onclick="toggleButton(3, 8)">A<sup>b</sup></button>
+        <button class="string4" id="s4, 22" state="0" octave="3" onclick="toggleButton(3, 9)">A</button>
+        <button class="string4" id="s4, 23" state="0" octave="3" s="1" onclick="toggleButton(3, 10)">B<sup>b</sup></button>
+        <button class="string4" id="s4, 24" state="0" octave="3" onclick="toggleButton(3, 11)">B</button>
+
+
+      </div>
+      </div>
+    </div>
+
+
+    <map name="guitarmap">
+      
+      <!-- String 0 -->
+      <area class="g" shape="rect" coords="0,237,20,300" onclick="toggleButton(0, 4)">
+      <area class="g" shape="rect" coords="21,237,136,300" onclick="toggleButton(0, 5);"/>
+      <area class="g" shape="rect" coords="146,237,252,300" onclick="toggleButton(0, 6)"/>
+      <area class="g" shape="rect" coords="261,237,357,300" onclick="toggleButton(0, 7)" />
+      <area class="g" shape="rect" coords="366,237,460,300" onclick="toggleButton(0, 8)">
+      <area class="g" shape="rect" coords="470,237,557,300" onclick="toggleButton(0, 9)"/>
+      <area class="g" shape="rect" coords="567,237,647,300" onclick="toggleButton(0, 10)">
+      <area class="g" shape="rect" coords="655,237,730,300" onclick="toggleButton(0, 11)"/>
+
+      <area class="g" shape="rect" coords="740,237,810,300" onclick="toggleButton(1, 0)">
+      <area class="g" shape="rect" coords="820,237,888,300" onclick="toggleButton(1, 1);"/>
+      <area class="g" shape="rect" coords="895,237,952,300" onclick="toggleButton(1, 2)"/>
+      <area class="g" shape="rect" coords="962,237,1019,300" onclick="toggleButton(1, 3)" />
+      <area class="g" shape="rect" coords="1028,237,1084,300" onclick="toggleButton(1, 4)">
+      <area class="g" shape="rect" coords="1092,237,1145,300" onclick="toggleButton(1, 5)"/>
+      <area class="g" shape="rect" coords="1154,237,1201,300" onclick="toggleButton(1, 6)">
+      <area class="g" shape="rect" coords="1210,237,1252,300" onclick="toggleButton(1, 7)"/>
+
+      <area class="g" shape="rect" coords="1262,237,1300,300" onclick="toggleButton(1, 8)">
+      <area class="g" shape="rect" coords="1309,237,1346,300" onclick="toggleButton(1, 9);"/>
+      <area class="g" shape="rect" coords="1357,237,1393,300" onclick="toggleButton(1, 10)"/>
+      <area class="g" shape="rect" coords="1400,237,1436,300" onclick="toggleButton(1, 11)" />
+      <area class="g" shape="rect" coords="1441,237,1477,300" onclick="toggleButton(2, 0)">
+      <area class="g" shape="rect" coords="1483,237,1506,300" onclick="toggleButton(2, 1)"/>
+      <area class="g" shape="rect" coords="1514,237,1539,300" onclick="toggleButton(2, 2)">
+      <area class="g" shape="rect" coords="1547,237,1569,300" onclick="toggleButton(2, 3)"/>
+      <area class="g" shape="rect" coords="1576,237,1600,300" onclick="toggleButton(2, 4)"/>
+
+      <!-- String 1 -->
+      <area class="g" shape="rect" coords="0,194,20,237" onclick="toggleButton(0, 9)">
+      <area class="g" shape="rect" coords="21,194,136,237" onclick="toggleButton(0, 10);"/>
+      <area class="g" shape="rect" coords="146,194,252,237" onclick="toggleButton(0, 11)"/>
+      <area class="g" shape="rect" coords="261,194,357,237" onclick="toggleButton(1, 0)" />
+      <area class="g" shape="rect" coords="366,194,460,237" onclick="toggleButton(1, 1)">
+      <area class="g" shape="rect" coords="470,194,557,237" onclick="toggleButton(1, 2)"/>
+      <area class="g" shape="rect" coords="567,194,647,237" onclick="toggleButton(1, 3)">
+      <area class="g" shape="rect" coords="655,194,730,237" onclick="toggleButton(1, 4)"/>
+
+      <area class="g" shape="rect" coords="740,194,810,237" onclick="toggleButton(1, 5)">
+      <area class="g" shape="rect" coords="820,194,888,237" onclick="toggleButton(1, 6);"/>
+      <area class="g" shape="rect" coords="895,194,952,237" onclick="toggleButton(1, 7)"/>
+      <area class="g" shape="rect" coords="962,194,1019,237" onclick="toggleButton(1, 8)" />
+      <area class="g" shape="rect" coords="1028,194,1084,237" onclick="toggleButton(1, 9)">
+      <area class="g" shape="rect" coords="1092,194,1145,237" onclick="toggleButton(1, 10)"/>
+      <area class="g" shape="rect" coords="1154,194,1201,237" onclick="toggleButton(1, 11)">
+      <area class="g" shape="rect" coords="1210,194,1252,237" onclick="toggleButton(2, 0)"/>
+
+      <area class="g" shape="rect" coords="1262,194,1300,237" onclick="toggleButton(2, 1)">
+      <area class="g" shape="rect" coords="1309,194,1346,237" onclick="toggleButton(2, 2);"/>
+      <area class="g" shape="rect" coords="1357,194,1393,237" onclick="toggleButton(2, 3)"/>
+      <area class="g" shape="rect" coords="1400,194,1436,237" onclick="toggleButton(2, 4)" />
+      <area class="g" shape="rect" coords="1441,194,1477,237" onclick="toggleButton(2, 5)">
+      <area class="g" shape="rect" coords="1483,194,1506,237" onclick="toggleButton(2, 6)"/>
+      <area class="g" shape="rect" coords="1514,194,1539,237" onclick="toggleButton(2, 7)">
+      <area class="g" shape="rect" coords="1547,194,1569,237" onclick="toggleButton(2, 8)"/>
+      <area class="g" shape="rect" coords="1576,194,1600,237" onclick="toggleButton(2, 9)"/>
+
+      <!-- String 2 -->
+      <area class="g" shape="rect" coords="0,149,20,193" onclick="toggleButton(1, 2)">
+      <area class="g" shape="rect" coords="21,149,136,193" onclick="toggleButton(1, 3);"/>
+      <area class="g" shape="rect" coords="146,149,252,193" onclick="toggleButton(1, 4)"/>
+      <area class="g" shape="rect" coords="261,149,357,193" onclick="toggleButton(1, 5)" />
+      <area class="g" shape="rect" coords="366,149,460,193" onclick="toggleButton(1, 6)">
+      <area class="g" shape="rect" coords="470,149,557,193" onclick="toggleButton(1, 7)"/>
+      <area class="g" shape="rect" coords="567,149,647,193" onclick="toggleButton(1, 8)">
+      <area class="g" shape="rect" coords="655,149,730,193" onclick="toggleButton(1, 9)"/>
+
+      <area class="g" shape="rect" coords="740,149,810,193" onclick="toggleButton(1, 10)">
+      <area class="g" shape="rect" coords="820,149,888,193" onclick="toggleButton(1, 11);"/>
+      <area class="g" shape="rect" coords="895,149,952,193" onclick="toggleButton(2, 0)"/>
+      <area class="g" shape="rect" coords="962,149,1019,193" onclick="toggleButton(2, 1)" />
+      <area class="g" shape="rect" coords="1028,149,1084,193" onclick="toggleButton(2, 2)">
+      <area class="g" shape="rect" coords="1092,149,1145,193" onclick="toggleButton(2, 3)"/>
+      <area class="g" shape="rect" coords="1154,149,1201,193" onclick="toggleButton(2, 4)">
+      <area class="g" shape="rect" coords="1210,149,1252,193" onclick="toggleButton(2, 5)"/>
+
+      <area class="g" shape="rect" coords="1262,149,1300,193" onclick="toggleButton(2, 6)">
+      <area class="g" shape="rect" coords="1309,149,1346,193" onclick="toggleButton(2, 7);"/>
+      <area class="g" shape="rect" coords="1357,149,1393,193" onclick="toggleButton(2, 8)"/>
+      <area class="g" shape="rect" coords="1400,149,1436,193" onclick="toggleButton(2, 9)" />
+      <area class="g" shape="rect" coords="1441,149,1477,193" onclick="toggleButton(2, 10)">
+      <area class="g" shape="rect" coords="1483,149,1506,193" onclick="toggleButton(2, 11)"/>
+      <area class="g" shape="rect" coords="1514,149,1539,193" onclick="toggleButton(3, 0)">
+      <area class="g" shape="rect" coords="1547,149,1569,193" onclick="toggleButton(3, 1)"/>
+      <area class="g" shape="rect" coords="1576,149,1600,193" onclick="toggleButton(3, 2)"/>
+
+
+
+
+    </map>
+    <script src="code.js"></script>
+
+    <!-- responsive image map jquery plugin-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery.rwdImageMaps.min.js"></script>
+    <script>
+      $(document).ready(function(e) {
+        $('img[usemap]').rwdImageMaps();
+      });
+    </script>
+
+    <!-- scripts for makign the highlighting, if you uncomment this itll mess up the resizing of the image map jquery scripts
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/maphilight/1.4.0/jquery.maphilight.min.js"></script>
+    <script>
+      $(function() {
+        $('.map').maphilight();
+    });
+    </script> -->
+
+  </body>
+
+</html>
