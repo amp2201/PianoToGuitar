@@ -22,10 +22,9 @@ img {
     width: 90%;
     height: auto;
 
-/* Everything below this comment is what I had to add to let the green circle overlap
-   the guitar image */
+    /* let buttons  overlap the images */
     position: relative;
-    top: 0;     
+    top: 0;
     left: 0;
 }
 
@@ -49,57 +48,53 @@ button {
 }
 
 /* Guitar image is 1600 x 300 so vw = pixel/1600 */
-.string0 {
+button[data-string="0"] {
   position: absolute;
   top: 14.25vw;
   left: 3.125vw;
  }
 
-.string1 {
+button[data-string="1"] {
   position: absolute;
   top: 11.75vw;
   left: 3.125vw;
 }
 
-.string2 {
+button[data-string="2"] {
   position:absolute;
   top: 9.4vw;
   left: 3.125vw;
 }
 
-.string3 {
+button[data-string="3"] {
   position:absolute;
   top: 6.8vw;
   left: 3.125vw;
 }
 
-.string4 {
+button[data-string="4"] {
   position:absolute;
   top: 4.25vw;
   left: 3.125vw;
 }
 
-.string5 {
+button[data-string="5"] {
   position:absolute;
   top: 1.6vw;
   left: 3.125vw;
 }
 
-.white {
+button[data-key-color="white"] {
   position:absolute;
   top: 12.5vw;
-  left: 6vw;
+  /*left: 6vw;*/
 }
 
-.black {
+button[data-key-color="black"] {
   position:absolute;
   top: 6vw;
-  left: 9.8vw;
 }
 
-button[s="1"] {
-  font-size: 2vh;
-}
 
 .content-container {
     display: flex;
@@ -108,22 +103,26 @@ button[s="1"] {
     justify-content: center;
 }
 
-button[octave="0"] {
+button[data-octave="0"] {
   background-color: orange;
 }
 
-button[octave="1"] {
+button[data-octave="1"] {
   background-color: #0095FF;
 }
 
-button[octave="2"] {
+button[data-octave="2"] {
   background-color: #4CAF50;
 }
 
-button[octave="3"] {
+button[data-octave="3"] {
   background-color: #FFC4E6;
 }
 
-button[octave="4"] {
+button[data-octave="4"] {
   background-color: #FFF700;
+}
+
+sup {
+  font-size: 1.1vw;
 }

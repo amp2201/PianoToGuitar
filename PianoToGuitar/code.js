@@ -1,205 +1,151 @@
-function alertKey(octave, num) {
-    var string = 0;
-    var fret = 0;
-    var pianoSum = (octave * 12) + num - 4;
 
-    //accounts for the highest string
-    if ((octave == 2 && num > 8) || octave > 2) {
-	string = 5;
-	fret = ((octave - 2) * 12) + num - 4;
-    } else if (octave == 1 && num == 11) {
-	string = 4;
-	fret = 0;
-    } else if (octave == 2) { // use hardcoding to account for 3rd string's only going up to 3rd fret
-	if (num < 4) {
-	    string = 4;
-	    fret = (pianoSum % 5) + 1;
-	} else if (num == 4) {
-	    string = 5;
-	    fret = 0;
-	} else if (num > 4) {
-	    string = 5;
-	    fret = (pianoSum % 5) + 1;
-	}
+// toggle the visibility of buttons that have the right octave and note
+function toggleButton(octave, note) {
+
+    var buttons = document.querySelectorAll('[data-octave="' + octave + '"][data-note="' + note + '"]');
+
+    if (buttons[0].style.visibility == "hidden") {
+
+        // toggle buttons to be visible
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].style.visibility = "visible";
+        }
+        playSound(octave, note);
+
     } else {
-	string = Math.floor(pianoSum / 5);
-	fret = pianoSum % 5;
+
+        // toggle buttons to be hidden
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].style.visibility = "hidden";
+        }
     }
-
-    //alert("octave: " + octave + "   num: " + num + "\n"
-    //+ "corresponding string: " + string + "    corresponding fret: " + fret);
-    var output = string + ", " + fret;
-    //alert(output);
-    return output;
 }
 
+// space out the buttons along one guitar string
+function spaceGuitarStringButtons(string) {
 
-// changes the visibility attribute of the circle pngs from hidden to visible
-function toggleButton(octave, num) {
-    var pianoButton = document.getElementById("p" + octave + ", " + num);
-    var id = alertKey(octave, num);
-    var button;
-    var  string = parseInt(id);
-    var fret = parseInt(id.substring(id.indexOf(" ") + 1));
-    var firstBool = 1;  // marks if this is the first iteration of the while loop to prevent repeating actions 
-    //alert(string + " " + fret);
-    while (string >= 0) {
-	
-        button = document.getElementById(id);
-	if (button.getAttribute("state") == 1) {   // if state = 1, the circle is currently visible
-	    button.style.visibility = "hidden";
-	    button.setAttribute("state", 0);
-	    
-	    if (firstBool == 1) {
-		pianoButton.style.visibility = "hidden";
-		pianoButton.setAttribute("state", 0);
-		firstBool = 0;
-	    }
-	    
-	} else {
-	    button.style.visibility = "visible"; // if state = 0, the circle is currently hidden
-	    button.setAttribute("state", 1);
+    var guitarButtons = document.querySelectorAll('[data-string="' + string + '"');
+    var spacing = 0;
 
-	    if (firstBool == 1) {
-		pianoButton.style.visibility = "visible";
-		pianoButton.setAttribute("state", 1);
-		playSound(octave, num);
-		firstBool = 0;
-	    }
-	}
-	if (string == 4) {
-	    string = string - 1;
-	    fret = fret + 4;
-	} else {
-	    string = string - 1;
-	    fret = fret + 5;
-	}
-	id = "s" + string + ", " + fret;
-    } // while
+    for (var i = 0; i < guitarButtons.length; i++) {
 
-    //playSound(octave, num);
-}
+        // space out each fret button manually since spacing between
+        // frets is not constant
+      	if (i == 0) {
+      	    spacing = 0;
+      	} else if (i == 1) {
+      	    spacing = 3.8;
+      	} else if (i == 2) {
+      	    spacing = 10.75;
+      	} else if (i == 3) {
+      	    spacing = 17;
+      	} else if (i == 4) {
+      	    spacing = 22.7;
+      	} else if (i == 5) {
+      	    spacing = 28.35;
+      	} else if (i == 6) {
+      	    spacing = 33.5;
+      	} else if (i == 7) {
+      	    spacing = 38.5;
+      	} else if (i == 8) {
+      	    spacing = 43.15;
+      	} else if (i == 9) {
+      	    spacing = 47.5;
+      	} else if (i == 10) {
+      	    spacing = 51.5;
+      	} else if (i == 11) {
+      	    spacing = 55.25;
+      	} else if (i == 12) {
+      	    spacing = 59.1;
+      	} else if (i == 13) {
+      	    spacing = 62.6;
+      	} else if (i == 14) {
+      	    spacing = 65.75;
+      	} else if (i == 15) {
+      	    spacing = 68.77;
+      	} else if (i == 16) {
+      	    spacing = 71.52;
+      	} else if (i == 17) {
+      	    spacing = 74.18;
+      	} else if (i == 18) {
+      	    spacing = 76.72;
+      	} else if (i == 19) {
+      	    spacing = 79.25;
+      	} else if (i == 20) {
+      	    spacing = 81.53;
+      	} else if (i == 21) {
+      	    spacing = 83.55;
+      	} else if (i == 22) {
+      	    spacing = 85.35;
+      	} else if (i == 23) {
+      	    spacing = 87.05;
+      	} else if (i == 24) {
+      	    spacing = 88.8;
+      	}
 
-// spaceCircles() is called on page load to space out green circles and set them to "hidden"
-function spaceCircles(className) {
-    
-    var circleArr = document.getElementsByClassName(className);
-    var space = 0;
-    //alert("space!");
-    for (var i = 0; i < circleArr.length; i++) {
-	
-	circleArr[i].style.visibility = "hidden";
-
-	if (i == 0) {
-	    space = 0;
-	} else if (i == 1) {
-	    space = 3.8;
-	} else if (i == 2) {
-	    space = 10.75;
-	} else if (i == 3) {
-	    space = 17;
-	} else if (i == 4) {
-	    space = 22.7;
-	} else if (i == 5) {
-	    space = 28.35;
-	} else if (i == 6) {
-	    space = 33.5;
-	} else if (i == 7) {
-	    space = 38.5;
-	} else if (i == 8) {
-	    space = 43.15;
-	} else if (i == 9) {
-	    space = 47.5;
-	} else if (i == 10) {
-	    space = 51.5;
-	} else if (i == 11) {
-	    space = 55.25;
-	} else if (i == 12) {
-	    space = 59.1;
-	} else if (i == 13) {
-	    space = 62.6;
-	} else if (i == 14) {
-	    space = 65.75;
-	} else if (i == 15) {
-	    space = 68.77;
-	} else if (i == 16) {
-	    space = 71.52;
-	} else if (i == 17) {
-	    space = 74.18;
-	} else if (i == 18) {
-	    space = 76.72;
-	} else if (i == 19) {
-	    space = 79.25;
-	} else if (i == 20) {
-	    space = 81.53;
-	} else if (i == 21) {
-	    space = 83.55;
-	} else if (i == 22) {
-	    space = 85.35;
-	} else if (i == 23) {
-	    space = 87.05;
-	} else if (i == 24) {
-	    space = 88.8;
-	}
-
-	//var spaceStr = num.toString(space);
-	circleArr[i].style.left = space + "vw";
+	      guitarButtons[i].style.left = spacing + "vw";
     }
-
-    
 }
 
-function spaceAllCircles() {
-    spaceCircles("string0");
-    spaceCircles("string1");
-    spaceCircles("string2");
-    spaceCircles("string3");
-    spaceCircles("string4");
-    spaceCircles("string5");
-    //spaceBlackButtons();
-    spaceWhiteButtons();
-    spaceBlackButtons();
+// called when the page loads to space out all the buttons both for the guitar and piano
+// and to set button visibility to hidden
+function spaceAllButtons() {
+
+    spaceGuitarStringButtons(0);
+    spaceGuitarStringButtons(1);
+    spaceGuitarStringButtons(2);
+    spaceGuitarStringButtons(3);
+    spaceGuitarStringButtons(4);
+    spaceGuitarStringButtons(5);
+    spaceWhiteKeyButtons();
+    spaceBlackKeyButtons();
+
+    // set button visibility to hidden
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+
+        buttons[i].style.visibility = "hidden";
+    }
 }
 
-function playSound(octave, num) {
-    var audio = new Audio("Audio/" + octave + "," + num + ".mp3");
+// plays an audio file corresponding to the note that was clicked
+function playSound(octave, note) {
+
+    var audio = new Audio("Audio/" + octave + "," + note + ".mp3");
     audio.play();
 }
 
-function spaceWhiteButtons() {
-    var whiteButtArr = document.getElementsByClassName("white");
+// space the buttons on the white piano keys
+function spaceWhiteKeyButtons() {
 
-    var space = 6;
+    var whiteKeyButtons = document.querySelectorAll('[data-key-color="white"]');
+    var spacing = 6; // initial spacing of first white key button
 
-    for (var i = 0; i < whiteButtArr.length; i++) {
-        whiteButtArr[i].style.visibility = "hidden";
-	whiteButtArr[i].style.left = space + "vw";
-	space = space + 2.573;
+    for (var i = 0; i < whiteKeyButtons.length; i++) {
+        // whiteKeyButtons[i].style.visibility = "hidden";
+	      whiteKeyButtons[i].style.left = spacing + "vw";
+	      spacing = spacing + 2.573; // there is always 2.573vw spacing between 2 white key buttons
     }
 }
 
-function spaceBlackButtons() {
-    var blackButtArr = document.getElementsByClassName("black");
-    var space = 9.95;
-    var pad = 9.95;
-    
-    for (var i = 0; i < blackButtArr.length; i = i + 5) {
-	//space = pad;
-	blackButtArr[i].style.left = space + "vw";
-	space = space + 2.562;
-	blackButtArr[i + 1].style.left = space + "vw";
-        space = space + 2.562;
-	blackButtArr[i + 2].style.left = space + "vw";
-        space = space + 5.13;
-	blackButtArr[i + 3].style.left = space + "vw";
-        space = space + 2.562;
-	blackButtArr[i + 4].style.left = space + "vw";
-        space = space + 5.17; 
+// space the buttons on the black piano keys
+function spaceBlackKeyButtons() {
 
-	blackButtArr[i].style.visibility = "hidden";
-	blackButtArr[i + 1].style.visibility = "hidden";
-	blackButtArr[i + 2].style.visibility = "hidden";
-	blackButtArr[i + 3].style.visibility = "hidden";
-	blackButtArr[i + 4].style.visibility = "hidden";
-    }    
+    var blackKeyButtons = document.querySelectorAll('[data-key-color="black"]');
+    var spacing = 9.95;
+
+    for (var i = 0; i < blackKeyButtons.length; i = i + 5) {
+
+        // space 5 black key buttons at a time; space one group of 3, then one group of 2
+	      blackKeyButtons[i].style.left = spacing + "vw";
+	      spacing = spacing + 2.562;
+	      blackKeyButtons[i + 1].style.left = spacing + "vw";
+        spacing = spacing + 2.562;
+	      blackKeyButtons[i + 2].style.left = spacing + "vw";
+        spacing = spacing + 5.13;    // larger gap between groups of black keys
+	      blackKeyButtons[i + 3].style.left = spacing + "vw";
+        spacing = spacing + 2.562;
+	      blackKeyButtons[i + 4].style.left = spacing + "vw";
+        spacing = spacing + 5.17;   // larger gap between groups of black keys
+    }
 }
